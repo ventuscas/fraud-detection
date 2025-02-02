@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fraud Detection - Batch Upload</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        padding: 20px;
+        background-color: #f8f9fa;
+      }
+      .container {
+        max-width: 800px;
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Fraud Detection - Batch Upload</h2>
+        <a href="/" class="btn btn-outline-primary"
+          >Back to Single Prediction</a
+        >
+      </div>
+
+      {% if error %}
+      <div class="alert alert-danger" role="alert">{{ error }}</div>
+      {% endif %}
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">Format File</h5>
+          <p class="card-text">File harus memiliki kolom berikut:</p>
+          <ul>
+            <li>TransactionID</li>
+            <li>CustomerID</li>
+            <li>amount: nilai transaksi (angka positif)</li>
+            <li>location: {{ locations|join(', ') }}</li>
+            <li>transaction_type: {{ transaction_types|join(', ') }}</li>
+            <li>timestamp: format waktu (YYYY-MM-DD HH:MM)</li>
+          </ul>
+        </div>
+      </div>
+
+      <form
+        action="{{ url_for('predict_batch') }}"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <div class="form-group">
+          <label for="file">Upload File:</label>
+          <input
+            type="file"
+            class="form-control"
+            id="file"
+            name="file"
+            accept=".csv,.xlsx,.xls"
+            required
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+          Process File
+        </button>
+      </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
