@@ -3,4 +3,4 @@ pandas
 openpyxl
 datetime
 gunicorn
-sklearn
+scikit-learn
