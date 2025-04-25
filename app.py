@@ -59,14 +59,15 @@ def process_file(file):
                 ]]
                 
                 # Prediksi
+                probability = model.predict_proba(features)[0][1]
                 prediction = model.predict(features)[0]
-                result = 'FRAUD' if prediction == 1 else 'BUKAN FRAUD'
+                result = f'FRAUD conf: {probability:.2%}' if prediction == 1 else f'BUKAN FRAUD conf: {probability:.2%}'
                 
                 # Tambahkan hasil ke DataFrame
                 results.append({
                     # 'row': index + 2,
-                    'trasactionID': row['TransactionID'],
-                    'customerID': row['CustomerID'],
+                    # 'trasactionID': row['TransactionID'],
+                    # 'customerID': row['CustomerID'],
                     'amount': row['Amount'],
                     'location': row['Location'],
                     'transaction_type': row['TransactionType'],
@@ -172,10 +173,11 @@ def predict():
         ]]
         
         # Make prediction
+        probability = model.predict_proba(features)[0][1]
         prediction = model.predict(features)[0]
         
         # Determine result text
-        result = 'FRAUD' if prediction == 1 else 'BUKAN FRAUD'
+        result = f'FRAUD conf: {probability:.2%}' if prediction == 1 else f'BUKAN FRAUD conf: {probability:.2%}'
         alert_class = 'danger' if prediction == 1 else 'success'
         
         return render_template('index.html',
