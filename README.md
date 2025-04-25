@@ -1,1 +1,1 @@
-Cuman projek UAS Machine Learning kok
+Project Akhir Machine Learning
