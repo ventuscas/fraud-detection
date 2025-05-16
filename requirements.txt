@@ -2,5 +2,6 @@ Flask
 pandas
 openpyxl
 datetime
-gunicorn
-scikit-learn
+pickle
+io
+os
