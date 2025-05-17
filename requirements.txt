@@ -1,6 +1,6 @@
 Flask
 pandas
-openpyxl
-datetime
 gunicorn
+datetime
 scikit-learn
+openpyxl
