@@ -1,1 +1,1 @@
-Project Akhir Machine Learning
+Project Akhir / Skripsi Machine Learning
