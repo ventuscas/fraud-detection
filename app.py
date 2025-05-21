@@ -61,7 +61,7 @@ def process_file(file):
                 # Prediksi
                 probability = model.predict_proba(features)[0][1]
                 prediction = model.predict(features)[0]
-                result = f'FRAUD conf: {probability:.2%}' if prediction == 1 else f'BUKAN FRAUD conf: {probability:.2%}'
+                result = f'FRAUD ({probability:.2%})' if prediction == 1 else f'BUKAN FRAUD ({probability:.2%})'
                 
                 # Tambahkan hasil ke DataFrame
                 results.append({
@@ -177,7 +177,7 @@ def predict():
         prediction = model.predict(features)[0]
         
         # Determine result text
-        result = f'FRAUD conf: {probability:.2%}' if prediction == 1 else f'BUKAN FRAUD conf: {probability:.2%}'
+        result = f'FRAUD ({probability:.2%})' if prediction == 1 else f'BUKAN FRAUD ({probability:.2%})'
         alert_class = 'danger' if prediction == 1 else 'success'
         
         return render_template('index.html',
