@@ -19,7 +19,7 @@ This project is a part of a final assignment / undergraduate thesis (Skripsi) fo
 - Trained model saved as `fraud.pkl`
 
 ## 🗂️ Project Structure
-
+```bash
 fraud-detection/
 │
 ├── templates/ # HTML templates for the web interface
@@ -29,7 +29,7 @@ fraud-detection/
 ├── Procfile # For deployment (e.g., Heroku)
 ├── .gitignore # Files and folders to be ignored by Git
 └── README.md # Project documentation
-
+```
 ## ⚙️ Installation
 
 # Clone the repository
