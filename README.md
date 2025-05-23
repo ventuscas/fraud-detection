@@ -33,11 +33,15 @@ fraud-detection/
 ## ⚙️ Installation
 
 # Clone the repository
+```bash
 git clone https://github.com/agungdhrs/fraud-detection.git
 cd fraud-detection
-
+```
 # Install dependencies
+```bash
 pip install -r requirements.txt
-
+```
 # Run the app
+```bash
 python app.py
+```
