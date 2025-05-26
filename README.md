@@ -16,7 +16,7 @@ This project is a part of a final assignment / undergraduate thesis (Skripsi) fo
 
 - Algorithm: Gradient Boosting
 - Input Features: amount, location, transactionType, Timestamp, isFraud
-- Trained model saved as `fraud.pkl`
+- Trained model saved as `fraud.pkl` 
 
 ## 🗂️ Project Structure
 ```bash
